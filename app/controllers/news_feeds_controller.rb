@@ -4,7 +4,7 @@ class NewsFeedsController < ApplicationController
   end
 
   def new
-
+    @news_feed = NewsFeed.new
   end
 
   def create
