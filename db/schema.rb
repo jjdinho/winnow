@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_142607) do
+ActiveRecord::Schema.define(version: 2018_11_24_143350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,9 +40,9 @@ ActiveRecord::Schema.define(version: 2018_11_24_142607) do
     t.date "from_date"
     t.date "to_date"
     t.integer "language"
-    t.integer "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sortby"
     t.index ["news_feed_id"], name: "index_search_queries_on_news_feed_id"
   end
 
