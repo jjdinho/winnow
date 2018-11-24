@@ -1,14 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Winnow.io</h1>
+<h5>Filter news the why you want.</h5>
 
-<h2><%= @sources.length %> articles found: </h2>
-<ul>
-  <% @sources.each do |source| %>
-    <li>
-      <h4><%= link_to source.name, source.url %></h4>
-      <p><%= source.description %></p>
-    </li>
-  <% end %>
-</ul>
+<hr>
+
+<%= simple_form_for @news_feed do |f| %>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.button :submit %>
+<% end %>
+
+
 
 <%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>
