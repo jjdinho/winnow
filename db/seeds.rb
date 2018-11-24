@@ -42,3 +42,8 @@ american_news_sources_id_array.each do |news_source_id|
 end
 
 puts "Created #{NewsSource.count} american news sources."
+
+User.create!(first_name: "Defeault", last_name: "User", email: "defaultuser@example.com", password: "password", password_confirmation: "password")
+
+puts "Created default user"
+

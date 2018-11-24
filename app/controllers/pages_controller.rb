@@ -6,8 +6,5 @@ class PagesController < ApplicationController
     # @sources = newsapi.get_sources(country: 'us', language: 'en')
 
     @news_feed = NewsFeed.new
-    @results_array = @sources.map do |source|
-      source.name
-    end
   end
 end
