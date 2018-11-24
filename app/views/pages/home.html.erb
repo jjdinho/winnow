@@ -4,8 +4,10 @@
 <hr>
 
 <%= simple_form_for @news_feed do |f| %>
-  <%= f.input :username %>
-  <%= f.input :password %>
+  <%= f.input :keyword %>
+  <%= f.input :frequency, collection: NewsFeed.frequencies  %>
+  <%= f.association :news_sources,
+      as: :check_boxes %>
   <%= f.button :submit %>
 <% end %>
 
