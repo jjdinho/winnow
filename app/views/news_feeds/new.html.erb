@@ -1,0 +1,11 @@
+<%= simple_form_for @news_feed do |f| %>
+  <%= f.input :keyword %>
+  <%= f.input :frequency, collection: NewsFeed.frequencies  %>
+  <%= f.association :news_sources,
+      as: :check_boxes %>
+  <%= f.button :submit %>
+<% end %>
+
+
+
+<%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>
