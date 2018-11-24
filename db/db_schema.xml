@@ -106,17 +106,29 @@
 <part>id</part>
 </key>
 </table>
-<table x="532" y="106" name="News_sources">
+<table x="887" y="103" name="News_sources">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="source_id_tag" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<row name="id_tag" null="1" autoincrement="0">
+<datatype>CHAR</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>CHAR</datatype>
 <default>NULL</default></row>
-<row name="news_feed_id" null="1" autoincrement="0">
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="681" y="122" name="sources_feeds">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_News_sources" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="News_sources" row="id" />
+</row>
+<row name="id_News_feeds" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="News_feeds" row="id" />
 </row>

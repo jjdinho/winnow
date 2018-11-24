@@ -1,5 +1,5 @@
 class NewsSource < ApplicationRecord
-  belongs_to :news_feed
+  has_and_belongs_to_many :news_feeds
 
   enum source_id_tag: ["abc-news", "al-jazeera-english", "ars-technica",
                        "associated-press", "axios", "bleacher-report",
