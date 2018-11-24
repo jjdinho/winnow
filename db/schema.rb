@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_24_141720) do
+ActiveRecord::Schema.define(version: 2018_11_24_142607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "news_feeds", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "frequency"
+    t.string "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_news_feeds_on_user_id"
+  end
+
+  create_table "news_sources", force: :cascade do |t|
+    t.bigint "news_feed_id"
+    t.string "source_id_tag"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["news_feed_id"], name: "index_news_sources_on_news_feed_id"
+  end
+
+  create_table "search_queries", force: :cascade do |t|
+    t.bigint "news_feed_id"
+    t.string "sources"
+    t.string "domains"
+    t.date "from_date"
+    t.date "to_date"
+    t.integer "language"
+    t.integer "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["news_feed_id"], name: "index_search_queries_on_news_feed_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +60,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_141720) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "news_feeds", "users"
+  add_foreign_key "news_sources", "news_feeds"
+  add_foreign_key "search_queries", "news_feeds"
 end

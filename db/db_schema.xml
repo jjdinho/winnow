@@ -106,7 +106,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="532" y="106" name="sources">
+<table x="532" y="106" name="News_sources">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
