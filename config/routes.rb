@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :search_queries, only: [:index,:new,:create]
 
   get 'home_search_query/:query/:sources', to: 'pages#home_search_query'
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
