@@ -11,11 +11,19 @@
 <% else %>
   <%= simple_form_for @search_query do |f| %>
     <%= f.input :keyword, input_html: { id: "home-search-query"} %>
-    <%= f.association :news_sources,
-        as: :check_boxes,
-        value_method: :id_tag %>
+    <input type="checkbox" id="cnn-checkbox" name="cnn-checkbox" value="cnn">
+    <label for="cnn-checkbox">CNN</label>
+    <input type="checkbox" id="fox-news-checkbox" name="fox-news-checkbox" value="fox-news">
+    <label for="fox-news-checkbox">Fox News</label>
+    <input type="checkbox" id="the-new-york-times-checkbox" name="the-new-york-times-checkbox" value="the-new-york-times">
+    <label for="the-new-york-times-checkbox">The New York Times</label>
+    <input type="checkbox" id="the-wall-street-journal-checkbox" name="the-wall-street-journal-checkbox" value="the-wall-street-journal">
+    <label for="the-wall-street-journal-checkbox">The Wall Street Journal</label>
+    <input type="checkbox" id="the-washington-post-checkbox" name="the-washington-post-checkbox" value="the-washington-post">
+    <label for="the-washington-post-checkbox">The Washington Post</label>
     <%= f.button :submit, id: "home-search-button" %>
   <% end %>
 <% end %>
 
 <%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>
+

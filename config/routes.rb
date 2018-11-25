@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :news_feeds, only: [:index,:new,:create]
   resources :search_queries, only: [:index,:new,:create]
 
-  get 'home_search_query/:query', to: 'pages#home_search_query'
+  get 'home_search_query/:query/:sources', to: 'pages#home_search_query'
 end
