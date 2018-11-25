@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home, :home_search_query]
 
-  # only accept json requests
-  before_action :check_format, only: [:home_search_query]
+  before_action :check_format, only: :home_search_query
 
   def home
     # newsapi = News.new(ENV['NEWS_API_KEY'])
@@ -21,7 +20,9 @@ class PagesController < ApplicationController
                                             language: 'en',
                                             sortBy: 'relevancy',
                                             pageSize: 100).first(10)
-    render json: @search_result
+    respond_to do |format|
+      format.json { render json: @search_result }
+    end
   end
 
   private

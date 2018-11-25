@@ -30,9 +30,9 @@ const query = (event) => {
   if (wsj !== "") { sourceArray.push(wsj); }
   if (washingtonPost !== "") { sourceArray.push(washingtonPost); }
 
-  console.log(`home_search_query/${encodedQuery}/${sourceArray}`)
+  console.log(`home_search_query/${encodedQuery}/${sourceArray}.json`)
 
-  fetch(`home_search_query/${encodedQuery}/${sourceArray}`)
+  fetch(`home_search_query/${encodedQuery}/${sourceArray}.json`)
     .then(response => response.json())
     .then((data) => {
       console.log(data)
