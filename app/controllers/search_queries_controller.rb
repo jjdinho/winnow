@@ -10,4 +10,8 @@ class SearchQueriesController < ApplicationController
   def create
 
   end
+
+  def perform
+    # call api
+  end
 end
