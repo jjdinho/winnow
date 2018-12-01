@@ -8,5 +8,13 @@ Rails.application.routes.draw do
 
   get 'home_search_query/:query/:sources', to: 'pages#home_search_query'
 
+  Rails.application.routes.draw do
+    # Sidekiq Web UI, only for admins.
+    require "sidekiq/web"
+    authenticate :user, lambda { |u| u.admin } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+  end
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
