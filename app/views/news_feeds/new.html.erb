@@ -1,8 +1,7 @@
 <%= simple_form_for @news_feed do |f| %>
   <%= f.input :keyword %>
-  <%= f.input :frequency, collection: NewsFeed.frequencies  %>
-  <%= f.association :news_sources,
-      as: :check_boxes %>
+  <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
+  <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
   <%= f.button :submit %>
 <% end %>
 

@@ -1,6 +1,6 @@
 puts "Clearing database..."
 
-NewsSource.delete_all
+NewsSource.destroy_all
 
 american_news_sources_id_array = ["abc-news", "al-jazeera-english", "ars-technica",
                        "associated-press", "axios", "bleacher-report",
@@ -43,7 +43,7 @@ end
 
 puts "Created #{NewsSource.count} american news sources."
 
-User.create!(first_name: "Defeault", last_name: "User", email: "defaultuser@example.com", password: "password", password_confirmation: "password")
+User.create!(first_name: "Default", last_name: "User", email: "defaultuser@example.com", password: "password", password_confirmation: "password")
 
 puts "Created default user"
 
