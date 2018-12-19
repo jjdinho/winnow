@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_142747) do
+ActiveRecord::Schema.define(version: 2018_12_18_225750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,14 @@ ActiveRecord::Schema.define(version: 2018_12_01_142747) do
     t.string "keyword"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true
     t.index ["user_id"], name: "index_news_feeds_on_user_id"
+  end
+
+  create_table "news_feeds_sources", id: false, force: :cascade do |t|
+    t.bigint "news_feed_id", null: false
+    t.bigint "news_source_id", null: false
+    t.index ["news_feed_id", "news_source_id"], name: "index_news_feeds_sources_on_news_feed_id_and_news_source_id"
   end
 
   create_table "news_sources", force: :cascade do |t|
@@ -42,13 +49,6 @@ ActiveRecord::Schema.define(version: 2018_12_01_142747) do
     t.datetime "updated_at", null: false
     t.integer "sortby"
     t.index ["news_feed_id"], name: "index_search_queries_on_news_feed_id"
-  end
-
-  create_table "sources_feeds", id: false, force: :cascade do |t|
-    t.bigint "news_feed_id"
-    t.bigint "news_source_id"
-    t.index ["news_feed_id"], name: "index_sources_feeds_on_news_feed_id"
-    t.index ["news_source_id"], name: "index_sources_feeds_on_news_source_id"
   end
 
   create_table "users", force: :cascade do |t|
