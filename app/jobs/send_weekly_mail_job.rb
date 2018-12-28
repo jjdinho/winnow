@@ -2,9 +2,8 @@ class SendWeeklyMailJob < ApplicationJob
   queue_as :default
 
   def perform
-    # Do something later
-    puts "heeeeeyyyyy"
-    UserMailer.welcome(User.first)
-    puts "done"
+    # Get all search queries...
+    # Execute them
+    # Send emails
   end
 end
