@@ -2,9 +2,9 @@ class SendWeeklyMailJob < ApplicationJob
   queue_as :default
 
   def perform
-    # Do something later
-    puts "heeeeeyyyyy"
-    UserMailer.welcome(User.first)
-    puts "done"
+    weekly_news_feeds = NewsFeed.where(frequency: "weekly", active: true)
+    weekly_news_feeds.each do |feed|
+      NewsFeedMailer.news_feed_weekly(feed)
+    end
   end
 end

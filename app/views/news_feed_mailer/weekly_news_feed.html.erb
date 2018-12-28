@@ -1,0 +1,11 @@
+<p>Hi <%= @user.name %>, here are your results for <%= @news_feed.keyword %></p>
+
+<% if @articles.length == 0 || @articles == nil %>
+  <p>You have nothing in your news feed this week.</p>
+<% else %>
+  <% @articles.each do |article| %>
+    <ul>
+      <li><a href="${article.url}" target="_blank">${article.title} - ${article.name}</a></li>
+    </ul>
+  <% end %>
+<% end %>
