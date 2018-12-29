@@ -1,4 +1,4 @@
-<p>Hi <%= @user.name %>, here are your results for <%= @news_feed.keyword %></p>
+<p>Hi <%= @user.name %>, here are your <%= @frequency %> news results for <%= @news_feed.keyword %></p>
 
 <% if @articles.length == 0 || @articles == nil %>
   <p>You have nothing in your news feed this week.</p>
