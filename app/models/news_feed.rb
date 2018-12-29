@@ -7,15 +7,30 @@ class NewsFeed < ApplicationRecord
   enum language: %I[ar de en es fr he it nl no pt ru se ud zh]
   enum sortby: %I[popularity relevancy publishedAt]
 
+  def perform_daily
+    return false if frequency != "daily"
+    send_search_query(Date.today - 1)
+  end
+
   def perform_weekly
     return false if frequency != "weekly"
+    send_search_query(Date.today - 7)
+  end
 
+  def perform_monthly
+    return false if frequency != "monthly"
+    send_search_query(Date.today - 1.month)
+  end
+
+  private
+
+  def send_search_query(from_date)
     sources_string = news_sources.map { |source| source.id_tag }.join(',')
 
     newsapi = News.new(ENV['NEWS_API_KEY'])
-    @search_result = newsapi.get_everything(q: keyword,
+    newsapi.get_everything(q: keyword,
                                             sources: sources_string,
-                                            from: (Date.today - 7).to_s,
+                                            from: (from_date).to_s,
                                             to: Date.today.to_s,
                                             language: language,
                                             sortBy: sortby,
