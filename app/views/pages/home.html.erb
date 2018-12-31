@@ -1,7 +1,53 @@
 <h1>Winnow.io</h1>
 <h5>Filter news the way you want.</h5>
 
-<div>
+<div data-controller="signup">
+  <div data-target="signup.emailContainer">
+    <h4>Sign up :)</h4>
+    <input type="text" data-target="signup.email">
+    <button data-action="click->signup#submitEmail">OK</button>
+  </div>
+  <div data-target="signup.passwordContainer" class="hide">
+    <h4>Now, let's get you a password.</h4>
+    <input type="text" data-target="signup.password">
+    <input type="text" data-target="signup.password_confirmation">
+    <button data-action="click->signup#submitPassword">OK</button>
+  </div>
+  <%= simple_form_for @news_feed do |f| %>
+    <div data-target="signup.keywordContainer">
+      <h2>What would you like to winnow? (Enter a keyword)</h2>
+      <%= f.input :keyword %>
+      <button data-action="click->signup#submitKeyword">OK</button>
+    </div>
+    <div data-target="signup.frequencyContainer">
+      <h2>How often would you like to receive the emails?</h2>
+      <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
+      <button data-action="click->signup#submitFrequency">OK</button>
+    </div>
+    <div data-target="signup.sourcesContainer">
+      <h2>What news sources do you want to winnow?</h2>
+      <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
+      <button data-action="click->signup#submitSources">OK</button>
+    </div>
+      <%= f.button :submit %>
+      <button></button>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div>
   <ul id="search-results"></ul>
 </div>
 <hr>
@@ -23,7 +69,7 @@
     <label for="the-washington-post-checkbox">The Washington Post</label>
     <%= f.button :submit, id: "home-search-button" %>
   <% end %>
-<% end %>
+<% end %> -->
 
 <%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>
 
