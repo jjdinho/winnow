@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'turbolinks', '~> 5.2.0'
+gem 'gibbon'
 
 gem 'news-api'
 gem 'postmark-rails'

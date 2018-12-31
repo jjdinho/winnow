@@ -1,7 +1,8 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "emailContainer", "passwordContainer", "email" ]
+  static targets = [ "emailContainer", "passwordContainer", "email",
+    "keywordContainer", "frequencyContainer", "sourcesContainer" ]
 
   connect() {
     console.log('working')
@@ -19,12 +20,16 @@ export default class extends Controller {
 
   }
 
-  submitKeyword() {
-
+  submitKeyword(e) {
+    e.preventDefault();
+    const frequencyContainer = this.frequencyContainerTarget
+    frequencyContainer.classList.remove('hide');
   }
 
-  submitFrequency() {
-
+  submitFrequency(e) {
+    e.preventDefault();
+    const sourcesContainer = this.sourcesContainerTarget
+    sourcesContainer.classList.remove('hide');
   }
 
   submitSources() {

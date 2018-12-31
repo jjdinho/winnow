@@ -11,10 +11,15 @@ class NewsFeedsController < ApplicationController
     @news_feed = NewsFeed.new(news_feed_params)
     @news_feed.user = current_user
     if @news_feed.save
-      flash[:notice] = "Successful"
-      redirect_to root_path
+      if request.referer[-25..-1] == "make_your_first_news_feed"
+        flash[:notice] = ""
+        redirect_to you_are_all_set_path
+      else
+        flash[:notice] = "Successfully created a news feed for '#{@news_feed.keyword}.'"
+        redirect_to root_path
+      end
     else
-      flash[:alert] = "Failed"
+      flash[:alert] = "Failed to create your news feed"
       render :new
     end
   end

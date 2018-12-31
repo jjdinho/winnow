@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get 'feed', to: 'pages#feed', as: 'feed'
+  get 'you_are_all_set', to: 'pages#you_are_all_set'
+  get 'make_your_first_news_feed', to: 'pages#make_your_first_news_feed'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :news_feeds do
     resources :search_queries, only: [:index,:new,:create]
