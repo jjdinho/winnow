@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     @search_query = NewsFeed.new
   end
 
+  def feed
+
+  end
+
   def home_search_query
     newsapi = News.new(ENV['NEWS_API_KEY'])
     search_sources = params[:sources]
