@@ -1,0 +1,13 @@
+<h1>All your stuff</h1>
+<ul>
+  <% @news_feeds.each do |news_feed| %>
+    <li>
+      <h3><%= news_feed.keyword %>: <%= news_feed.frequency %></h3>
+      <p>
+        <% news_feed.sources.each do |source| %>
+          <%= source.name %>,
+        <% end %>
+      </p>
+    </li>
+  <% end %>
+</ul>

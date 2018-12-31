@@ -9,7 +9,11 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
   def name
-    first_name + " " + last_name
+    if first_name && last_name
+      return first_name + " " + last_name
+    else
+      return nil
+    end
   end
 
   private

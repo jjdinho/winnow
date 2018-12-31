@@ -1,15 +1,16 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "email", "password", "password_confirmation",
-     "emailContainer", "passwordContainer", "keywordContainer",
-     "frequencyContainer", "sourcesContainer" ]
+  static targets = [ "emailContainer", "passwordContainer", "email" ]
 
-  submitEmail() {
-    console.log('here')
+  connect() {
+    console.log('working')
+  }
+
+  submitEmail(e) {
+    e.preventDefault();
     const emailContainer = this.emailContainerTarget
     const passwordContainer = this.passwordContainerTarget
-    console.log(emailContainer)
     emailContainer.classList.add("hide");
     passwordContainer.classList.remove("hide");
   }
@@ -32,13 +33,5 @@ export default class extends Controller {
 
   get email() {
     return this.emailTarget.value
-  }
-
-  get password() {
-    return this.passwordTarget.value
-  }
-
-  get password_confirmation() {
-    return this.password_confirmationTarget.value
   }
 }

@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   before_action :check_format, only: :home_search_query
 
   def home
+    redirect_to news_feeds_path and return if current_user
     # newsapi = News.new(ENV['NEWS_API_KEY'])
     # @sources = newsapi.get_sources(country: 'us', language: 'en')
 
