@@ -1,0 +1,38 @@
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+body {
+  background-color: $secondary-accent;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: $primary;
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .layout-container {
+    width: 100%;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .layout-container {
+    max-width: 700px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  // .layout-container {
+  //   max-width: 600px;
+  // }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  // .layout-container {
+
+  // }
+}

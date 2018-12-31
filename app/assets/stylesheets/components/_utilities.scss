@@ -1,0 +1,88 @@
+// Colors
+.bg-primary {
+  background-color: $primary;
+}
+.color-primary {
+ color: $primary
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}
+.color-secondary {
+ color: $secondary
+}
+
+.bg-secondary-accent {
+  background-color: $secondary-accent;
+}
+.color-secondary-accent {
+ color: $secondary-accent
+}
+
+.bg-off-black {
+  background-color: $off-black;
+}
+.color-off-black {
+ color: $off-black
+}
+.bg-transparent {
+ background-color: transparent;
+}
+.color-transparent {
+  color: transparent;
+}
+// Opacity
+.opacity-90 {
+  opacity: 0.9;
+}
+.opacity-80 {
+  opacity: 0.8;
+}
+.opacity-70 {
+  opacity: 0.7;
+}
+.opacity-60 {
+  opacity: 0.6;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-40 {
+  opacity: 0.4;
+}
+.opacity-30 {
+  opacity: 0.3;
+}
+.opacity-20 {
+  opacity: 0.2;
+}
+.opacity-10 {
+  opacity: 0.1;
+}
+// Font size
+.fs-1em {
+  font-size: 1em;
+}
+.fs-1_5em {
+  font-size: 1.5em;
+}
+.fs-0_8em {
+  font-size: 0.8em;
+}
+.fs-2em {
+  font-size: 2em;
+}
+// Width
+.width-100px {
+  width: 100px
+}
+.width-200px {
+  width: 200px
+}
+.width-300px {
+  width: 300px
+}
+.width-400px {
+  width: 400px
+}
