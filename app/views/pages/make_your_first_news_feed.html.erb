@@ -1,0 +1,19 @@
+<div data-controller="signup">
+  <%= simple_form_for NewsFeed.new do |f| %>
+    <div data-target="signup.keywordContainer">
+      <h3>What news are you interested in? (Enter a keyword)</h3>
+      <%= f.input :keyword %>
+      <button data-action="click->signup#submitKeyword">OK</button>
+    </div>
+    <div data-target="signup.frequencyContainer" class="hide">
+      <h3>How often would you like to receive emails?</h3>
+      <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
+      <button data-action="click->signup#submitFrequency">OK</button>
+    </div>
+    <div data-target="signup.sourcesContainer" class="hide">
+      <h3>What news sources do you want to follow?</h3>
+      <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>

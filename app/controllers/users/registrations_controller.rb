@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def after_sign_up_path_for(resource)
-    feed_path
+    make_your_first_news_feed_path
   end
 
   # GET /resource/sign_up
