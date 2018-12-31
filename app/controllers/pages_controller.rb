@@ -11,11 +11,17 @@ class PagesController < ApplicationController
     @search_query = NewsFeed.new
   end
 
-  def feed; end
+  def feed
+    authorize current_user
+  end
 
-  def you_are_all_set; end
+  def you_are_all_set
+    authorize current_user
+  end
 
-  def make_your_first_news_feed; end
+  def make_your_first_news_feed
+    authorize current_user
+  end
 
   def home_search_query
     newsapi = News.new(ENV['NEWS_API_KEY'])
