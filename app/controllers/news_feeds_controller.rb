@@ -1,6 +1,6 @@
 class NewsFeedsController < ApplicationController
   def index
-
+    @news_feeds = current_user.news_feeds
   end
 
   def new

@@ -2,35 +2,30 @@
 <h5>Filter news the way you want.</h5>
 
 <div data-controller="signup">
-  <div data-target="signup.emailContainer">
-    <h4>Sign up :)</h4>
-    <input type="text" data-target="signup.email">
-    <button data-action="click->signup#submitEmail">OK</button>
-  </div>
-  <div data-target="signup.passwordContainer" class="hide">
-    <h4>Now, let's get you a password.</h4>
-    <input type="text" data-target="signup.password">
-    <input type="text" data-target="signup.password_confirmation">
-    <button data-action="click->signup#submitPassword">OK</button>
-  </div>
-  <%= simple_form_for @news_feed do |f| %>
-    <div data-target="signup.keywordContainer">
-      <h2>What would you like to winnow? (Enter a keyword)</h2>
-      <%= f.input :keyword %>
-      <button data-action="click->signup#submitKeyword">OK</button>
-    </div>
-    <div data-target="signup.frequencyContainer">
-      <h2>How often would you like to receive the emails?</h2>
-      <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
-      <button data-action="click->signup#submitFrequency">OK</button>
-    </div>
-    <div data-target="signup.sourcesContainer">
-      <h2>What news sources do you want to winnow?</h2>
-      <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
-      <button data-action="click->signup#submitSources">OK</button>
-    </div>
-      <%= f.button :submit %>
-      <button></button>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <div data-target="signup.emailContainer">
+        <h3>Sign up to get the news you want.</h3>
+        <%= f.input :email,
+                    required: true,
+                    input_html: { autocomplete: "email" }%>
+        <button data-action="click->signup#submitEmail">Sign Up</button>
+      </div>
+      <div data-target="signup.passwordContainer" class="hide">
+        <h3>Let's get you a password.</h3>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+        <div class="form-actions">
+          <%= f.button :submit, "OK" %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
@@ -44,32 +39,6 @@
 
 
 
-
-
-
-<!-- <div>
-  <ul id="search-results"></ul>
-</div>
-<hr>
-
-<% if @search_result %>
-  <%= @search_result %>
-<% else %>
-  <%= simple_form_for @search_query do |f| %>
-    <%= f.input :keyword, input_html: { id: "home-search-query"} %>
-    <input type="checkbox" id="cnn-checkbox" name="cnn-checkbox" value="cnn">
-    <label for="cnn-checkbox">CNN</label>
-    <input type="checkbox" id="fox-news-checkbox" name="fox-news-checkbox" value="fox-news">
-    <label for="fox-news-checkbox">Fox News</label>
-    <input type="checkbox" id="the-new-york-times-checkbox" name="the-new-york-times-checkbox" value="the-new-york-times">
-    <label for="the-new-york-times-checkbox">The New York Times</label>
-    <input type="checkbox" id="the-wall-street-journal-checkbox" name="the-wall-street-journal-checkbox" value="the-wall-street-journal">
-    <label for="the-wall-street-journal-checkbox">The Wall Street Journal</label>
-    <input type="checkbox" id="the-washington-post-checkbox" name="the-washington-post-checkbox" value="the-washington-post">
-    <label for="the-washington-post-checkbox">The Washington Post</label>
-    <%= f.button :submit, id: "home-search-button" %>
-  <% end %>
-<% end %> -->
 
 <%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>
 

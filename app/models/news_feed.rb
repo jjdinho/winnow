@@ -7,6 +7,10 @@ class NewsFeed < ApplicationRecord
   enum language: %I[ar de en es fr he it nl no pt ru se ud zh]
   enum sortby: %I[popularity relevancy publishedAt]
 
+  def sources
+    news_sources
+  end
+
   def perform_daily
     return false if frequency != "daily"
     send_search_query(Date.today - 1)

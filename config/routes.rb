@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+
   root to: 'pages#home'
+  get 'feed', to: 'pages#feed', as: 'feed'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :news_feeds do
     resources :search_queries, only: [:index,:new,:create]
