@@ -1,0 +1,26 @@
+.home-header {
+  height: 0px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.home-header h1 {
+  z-index: 3;
+}
+.home-header-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 0%;
+  z-index: 2;
+}
+.home-header:hover > .home-header-background {
+  width: 100%;
+  transition: 0.5s ease-in-out;
+}
