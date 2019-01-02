@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
+  margin-left: -5px;
   margin-top: 20px;
   position: relative;
   cursor: pointer;
@@ -16,9 +17,11 @@
   position: absolute;
   top: 0;
   right: 0;
-  height: 30px;
+  margin-top: 4px;
+  height: 26px;
   width: 0%;
   z-index: 2;
+  background-color: $secondary;
 }
 .home-header:hover > .home-header-background {
   width: 100%;
