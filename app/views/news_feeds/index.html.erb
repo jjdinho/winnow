@@ -1,13 +1,22 @@
-<h1>All your stuff</h1>
-<ul>
-  <% @news_feeds.each do |news_feed| %>
-    <li>
-      <h3><%= news_feed.keyword %>: <%= news_feed.frequency %></h3>
-      <p>
-        <% news_feed.sources.each do |source| %>
-          <%= source.name %>,
-        <% end %>
-      </p>
-    </li>
-  <% end %>
-</ul>
+<div class="main-container">
+  <div class="flex-box">
+    <h3 class="test">News Parsers</h1>
+    </div>
+    <div>Create a news parser</div>
+  </div>
+  <div class="main-content">
+    <table>
+      <%= @news_feeds.each do |news_feed| %>
+        <tr>
+          <td><%= news_feed.keyword %></td>
+          <td><%= news_feed.frequency %></td>
+          <td><%= news_feed.sources %></td>
+        </tr>
+      <% end %>
+      <% if @news_feeds.empty? %>
+        <p>You have no news parsers.</p>
+        <a href="#">Create your first one.</a>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
   margin: auto;
+  padding: 15px;
+}
+.main-container {
+  margin: auto;
+  width: 100vw;
 }
 body {
   background-color: rgb(252,252,252);
@@ -31,9 +36,9 @@ a:hover {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  // .layout-container {
-  //   max-width: 600px;
-  // }
+  .main-container {
+    max-width: 800px;
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
