@@ -1,22 +1,21 @@
 <div class="main-container">
   <div class="flex-box">
-    <h3 class="test">news parsers</h1>
+    <h3 class="test">Parsers</h1>
     </div>
-    <div>Create a news parser</div>
+    <div>Create a new parser</div>
   </div>
   <div class="main-content">
-    <table>
-      <%= @news_feeds.each do |news_feed| %>
-        <tr>
-          <td><%= news_feed.keyword %></td>
-          <td><%= news_feed.frequency %></td>
-          <td><%= news_feed.sources %></td>
-        </tr>
+    <ul>
+      <% @news_feeds.each do |parser| %>
+          <li>
+            <div class="js-toggle-button"><h5><%= parser.keyword %></h5>
+              <div class="toggle-area" style="display: none;">wooooooooooooooo</div>
+            </div>
+          </li>
       <% end %>
       <% if @news_feeds.empty? %>
-        <p>You have no news parsers.</p>
-        <a href="#">Create your first one.</a>
+        <p>You have no parsers yet, create one!</p>
       <% end %>
-    </table>
+    </ul>
   </div>
 </div>

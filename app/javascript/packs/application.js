@@ -1,5 +1,7 @@
 import "bootstrap";
 import "homeSearchQuery";
+import "fadeOutAlerts";
+import "utilities";
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"

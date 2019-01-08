@@ -22,12 +22,17 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to "#", class: "winnow-nav-link" do %>
-              <%= t(".profile", default: "Profile") %>
+              Parsers
             <% end %>
           </li>
           <li>
             <%= link_to "#", class: "winnow-nav-link" do %>
-              <%= t(".settings", default: "Settings") %>
+              About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#", class: "winnow-nav-link" do %>
+              <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
           <li>
@@ -37,7 +42,14 @@
           </li>
         <% else %>
           <!-- Login link (when logged out) -->
-          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "winnow-nav-link" %>
+          <li>
+            <%= link_to "#", class: "winnow-nav-link" do %>
+              About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "winnow-nav-link" %>
+          </li>
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->

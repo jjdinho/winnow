@@ -3,13 +3,27 @@
 * ------------------------------------- */
 
 .alert {
+  padding: 5px;
+  position: fixed;
+  top: 65px;
+  width: 100%;
+  left: 0;
   margin: 0;
   text-align: center;
-  color: white;
 }
 .alert-info {
-  background: $green;
+  background: $info;
+  color: $background;
 }
 .alert-warning {
-  background: $red;
+  background: $warning;
+  color: $background;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .alert {
+    max-width: 700px;
+    left: inherit;
+  }
 }
