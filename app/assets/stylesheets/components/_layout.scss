@@ -22,6 +22,13 @@ p {
 a:hover {
   text-decoration: none;
 }
+.js-toggle-button {
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .layout-container {

@@ -22,17 +22,17 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to "#", class: "winnow-nav-link" do %>
-              <%= t(".profile", default: "Profile") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#", class: "winnow-nav-link" do %>
               Parsers
             <% end %>
           </li>
           <li>
             <%= link_to "#", class: "winnow-nav-link" do %>
               About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#", class: "winnow-nav-link" do %>
+              <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
           <li>
