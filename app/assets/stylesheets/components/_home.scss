@@ -11,6 +11,7 @@
   cursor: pointer;
 }
 .home-header h1 {
+  font-family: "Righteous", "Helvetica", "sans-serif";
   z-index: 3;
 }
 .home-header-background {
@@ -22,8 +23,8 @@
   width: 0%;
   z-index: 2;
   background-color: $secondary;
+  transition: 0.3s ease-in-out;
 }
 .home-header:hover > .home-header-background {
   width: 100%;
-  transition: 0.5s ease-in-out;
 }
