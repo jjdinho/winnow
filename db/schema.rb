@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_28_204045) do
+ActiveRecord::Schema.define(version: 2019_01_16_182215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_12_28_204045) do
     t.string "domains"
     t.integer "language", default: 2
     t.integer "sortby", default: 1
+    t.boolean "strict", default: true
     t.index ["user_id"], name: "index_news_feeds_on_user_id"
   end
 

@@ -32,12 +32,26 @@ class NewsFeed < ApplicationRecord
     sources_string = news_sources.map { |source| source.id_tag }.join(',')
 
     newsapi = News.new(ENV['NEWS_API_KEY'])
-    newsapi.get_everything(q: keyword,
+    @results = newsapi.get_everything(q: keyword,
                                             sources: sources_string,
                                             from: (from_date).to_s,
                                             to: Date.today.to_s,
                                             language: language,
                                             sortBy: sortby,
-                                            pageSize: 100).first(10)
+                                            pageSize: 100)
+
+    if self.strict?
+      filter_results
+    else
+      @results.first(10)
+    end
+  end
+
+  def filter_results
+    @results = @results.select do |article|
+      article.title =~ /#{keyword}/i || article.description =~ /#{keyword}/i
+    end
+
+    @results.first(10)
   end
 end
