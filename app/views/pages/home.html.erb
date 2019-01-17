@@ -4,6 +4,7 @@
     <div data-target="signup.progressBarTwo" class="progress-bar-2"></div>
     <div data-target="signup.progressBarThree" class="progress-bar-3"></div>
     <div data-target="signup.progressBarFour" class="progress-bar-4"></div>
+    <div class="progress-bar-dot"></div>
   </div>
   <%= form_tag(awesome_llama_path, method: "post") do %>
     <!-- Email -->
@@ -28,15 +29,36 @@
     </div>
     <!-- end password -->
     <!-- Make your first llama -->
+    <!-- Keyword -->
     <div data-target="signup.keywordContainer" class="hide z-index-3 winnow-center-stage">
-      <p class="fs-1_5em">What news are you interested in? (Enter a keyword)</p>
+      <p class="fs-1_5em">What news are you interested in? <small>think <em>keyword</em></small></p>
       <%= text_field_tag 'keyword', nil, placeholder: "south china sea", class: 'winnow-text-input',
           id: 'inputKeyword' %>
-      <button data-action="click->signup#submitKeyword" class="btn btn-winnow">
+      <button data-action="click->signup#submitKeyword" id="submitKeywordBtn" class="btn btn-winnow">
         <i class="fas fa-arrow-right"></i>
       </button>
-      <button class="btn btn-winnow" data-action="click->signup#submitKeyword">OK</button>
     </div>
-
+    <!-- end keyword -->
+    <!-- Frequency -->
+    <div data-target="signup.frequencyContainer" class="hide z-index-4 winnow-center-stage">
+      <p class="fs-1_5em">How often would you like to receive emails?</p>
+      <div>
+        <input type="radio" class="winnow-radio-btn" id="daily" name="frequency" value="daily"
+               checked>
+        <label class="winnow-radio-btn-label" for="daily"><span>daily</span></label>
+      </div>
+      <div>
+        <input type="radio" class="winnow-radio-btn" id="weekly" name="frequency" value="weekly">
+        <label class="winnow-radio-btn-label" for="weekly"><span>weekly</span></label>
+      </div>
+      <div>
+        <input type="radio" class="winnow-radio-btn" id="monthly" name="frequency" value="monthly">
+        <label class="winnow-radio-btn-label" for="monthly"><span>monthly</span></label>
+      </div>
+      <button class="btn btn-winnow" id="submitFrequencyBtn" data-action="click->signup#submitFrequency">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    <!-- end frequency -->
   <% end %>
 </div>

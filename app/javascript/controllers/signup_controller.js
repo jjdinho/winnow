@@ -8,6 +8,7 @@ export default class extends Controller {
 
   connect() {
     console.log('working')
+    // this.listenForEnter();
   }
 
   submitEmail(e) {
@@ -18,9 +19,10 @@ export default class extends Controller {
     const progressBarContainer = this.progressBarContainerTarget;
     let input = document.querySelector("#inputPassword");
 
-    console.log(input)
+    setTimeout(function(){
+      input.focus();
+    }, 1000);
 
-    input.focus();
     // fade animation
     this.fadeOutElement(emailContainer);
     this.removeHideAndFadeInElement(passwordContainer);
@@ -31,19 +33,25 @@ export default class extends Controller {
     }, 500);
 
     // end animation
-    this.listenForEnter(input);
   }
 
   submitPassword(e) {
     e.preventDefault();
     const passwordContainer = this.passwordContainerTarget;
     const keywordContainer = this.keywordContainerTarget;
-    const progressBarTwo = this.progressBarOneTarget;
+    const progressBarTwo = this.progressBarTwoTarget;
     let input = document.querySelector("#inputKeyword");
 
-    input.focus();
+
+    setTimeout(function(){
+      input.focus();
+    }, 1000);
 
     // fade animation
+
+    this.fadeOutElement(passwordContainer);
+    this.removeHideAndFadeInElement(keywordContainer);
+
     setTimeout(function(){
       progressBarTwo.style.width = "100%";
     }, 500);
@@ -54,35 +62,79 @@ export default class extends Controller {
 
   submitKeyword(e) {
     e.preventDefault();
-    const frequencyContainer = this.frequencyContainerTarget
-    frequencyContainer.classList.remove('hide');
+    const keywordContainer = this.keywordContainerTarget;
+    const frequencyContainer = this.frequencyContainerTarget;
+    const progressBarThree = this.progressBarThreeTarget;
+    // let input = document.querySelector("#inputKeyword");
+
+    // setTimeout(function(){
+
+    //   input.focus();
+    // }, 1000);
+
+    // fade animation
+
+    this.fadeOutElement(keywordContainer);
+    this.removeHideAndFadeInElement(frequencyContainer);
+
+    setTimeout(function(){
+      progressBarThree.style.width = "100%";
+    }, 500);
+
+    // end animation
   }
 
   submitFrequency(e) {
     e.preventDefault();
-    const sourcesContainer = this.sourcesContainerTarget
-    sourcesContainer.classList.remove('hide');
+    // const frequencyContainer = this.frequencyContainerTarget;
+    // const sourcesContainer = this.sourcesContainerTarget;
+    // const progressBarThree = this.progressBarThreeTarget;
+    // let input = document.querySelector("#inputFrequency");
+
+    // setTimeout(function(){
+
+    //   input.focus();
+    // }, 1000);
+
+    // fade animation
+
+    // this.fadeOutElement(frequencyContainer);
+    // this.removeHideAndFadeInElement(sourcesContainer);
+
+    // setTimeout(function(){
+    //   progressBarThree.style.width = "100%";
+    // }, 500);
+
+    // end animation
   }
 
   submitSources() {
 
   }
 
-  listenForEnter(input) {
-    if (input === document.activeElement) {
-      // Execute a function when the user releases a key on the keyboard
-      input.addEventListener("keyup", function(event) {
-        // Cancel the default action, if needed
-        event.preventDefault();
-        // Number 13 is the "Enter" key on the keyboard
-        if (event.keyCode === 13) {
-          // Trigger the button element with a click
+  listenForEnter() {
+    // Not working properly...
+    const passwordInput = document.querySelector("#inputPassword");
+    const keywordInput = document.querySelector("#inputKeyword");
+    const dailyRadio = document.querySelector("#daily");
+    const weeklyRadio = document.querySelector("#weekly");
+    const monthlyRadio = document.querySelector("#monthly");
+
+    document.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        if (passwordInput === document.activeElement) {
           document.getElementById("submitPasswordBtn").click();
-          input.removeEventListener("keyup")
+        } else if (keywordInput === document.activeElement) {
+          document.getElementById("submitKeywordBtn").click();
+        } else if ((dailyRadio || weeklyRadio || monthly) === document.activeElement) {
+          document.getElementById("submitFrequencyBtn").click();
         }
-      });
-    }
+      }
+    });
+
   }
+
   // animations
   fadeOutElement(element) {
     element.classList.add('animated', 'fadeOutRight');
