@@ -7,7 +7,7 @@ class NewsFeed < ApplicationRecord
   enum language: %I[ar de en es fr he it nl no pt ru se ud zh]
   enum sortby: %I[popularity relevancy publishedAt]
 
-  validate :keyword, presence: true
+  validates :keyword, presence: true
 
   def sources
     news_sources
