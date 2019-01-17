@@ -7,6 +7,10 @@
   height: 80px;
   background-color: rgb(255,255,255);
 }
+.winnow-navbar {
+  top: 15px;
+  position: sticky;
+}
 .winnow-navbar-toggle {
   background-color: $secondary-accent;
   position: fixed;
