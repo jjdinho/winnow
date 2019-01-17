@@ -1,17 +1,27 @@
 /* Main navbar */
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(255,255,255);
+}
 .winnow-navbar-toggle {
   background-color: $secondary-accent;
   position: fixed;
   left: 0;
+  top: 80px;
   width: 100%;
   padding-left: 30px;
 }
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .winnow-navbar-toggle {
-    background-color: $background;
+    background-color: rgb(255,255,255);
     position: inherit;
     width: inherit;
+    top: 0;
     padding-left: inherit;
   }
 }
@@ -34,5 +44,5 @@
   background-color: $primary;
 }
 .navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
-  background-color: $background;
+  background-color: rgb(255,255,255)
 }

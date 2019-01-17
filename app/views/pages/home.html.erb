@@ -1,32 +1,32 @@
 <div data-controller="signup">
+  <p class="fs-1_5em">Save time and let our llamas scower the lastest headlines, widdling down the news, to get you the information you care about.</p>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div data-target="signup.emailContainer">
-      <p class="fs-1_5em">Sign up to get the news you want.</p>
-      <div class="input-group width-400px">
+      <div>
         <%= f.input :email,
                     label: false,
                     required: true,
-                    placeholder: "Enter email address",
-                    input_html: { autocomplete: "email", class: 'form-control' }%>
-        <span class="input-group-btn">
-          <button data-action="click->signup#submitEmail" class="btn btn-winnow border-radius-right-rounded">Sign Up</button>
-        </span>
+                    placeholder: "youremail@gmail.com",
+                    input_html: { autocomplete: "email", class: 'winnow-text-input' }%>
+      <button data-action="click->signup#submitEmail" class="btn btn-winnow">
+        Sign Up
+      </button>
       </div>
     </div>
     <div data-target="signup.passwordContainer" class="hide">
-      <div class="input-group">
         <p class="fs-1_5em">Let's get you a password</p>
         <%= f.input :password,
                     required: true,
+                    placeholder: raw("&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"),
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password", class: "winnow-text-input" } %>
         <%= f.input :password_confirmation,
                     required: true,
-                    input_html: { autocomplete: "new-password" } %>
+                    placeholder: raw("&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;"),
+                    input_html: { autocomplete: "new-password", class: "winnow-text-input" } %>
         <button class="btn btn-winnow">OK</button>
-      </div>
     </div>
   <% end %>
 </div>

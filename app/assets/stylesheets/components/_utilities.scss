@@ -86,17 +86,3 @@
 .width-400px {
   width: 400px
 }
-// buttons
-.btn-winnow {
-  background-color: $primary;
-  color: #ffffff;
-}
-.btn-winnow:hover {
-  color: $secondary;
-  opacity: 0.9;
-  transition: 0.3s ease-in-out;
-}
-.border-radius-right-rounded {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-}

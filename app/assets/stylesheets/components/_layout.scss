@@ -9,11 +9,13 @@
   width: 100vw;
 }
 body {
-  background-color: $background;
+  background: linear-gradient(180deg, #6D6DE8, $background-two 80%);
   font-weight: 300;
+  min-width: 100vw;
+  min-height: 100vh;
+  color: rgb(245,245,245);
 }
 h1, h2, h3, h4, h5, h6 {
-  color: $primary;
   font-weight: 700;
 }
 p {

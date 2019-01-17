@@ -2,17 +2,23 @@
   <%= simple_form_for NewsFeed.new do |f| %>
     <div data-target="signup.keywordContainer">
       <p class="fs-1_5em">What news are you interested in? (Enter a keyword)</p>
-      <%= f.input :keyword %>
+      <%= f.input :keyword,
+            label: false,
+            placeholder: "south china sea",
+            input_html: { class: 'winnow-text-input' } %>
       <button class="btn btn-winnow" data-action="click->signup#submitKeyword">OK</button>
     </div>
     <div data-target="signup.frequencyContainer" class="hide">
       <p class="fs-1_5em">How often would you like to receive emails?</p>
-      <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
+      <%= f.input :frequency, collection: news_feeds_frequencies_collection,
+            label: false,
+            input_html: { class: 'winnow-text-input' }  %>
       <button class="btn btn-winnow" data-action="click->signup#submitFrequency">OK</button>
     </div>
     <div data-target="signup.sourcesContainer" class="hide">
       <p class="fs-1_5em">What news sources do you want to follow?</p>
-      <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
+      <%= f.association :news_sources, as: :check_boxes, value_method: :id,
+          class: 'winnow-text-input' %>
       <%= f.button :submit, class: "btn btn-winnow" %>
     </div>
   <% end %>
