@@ -38,6 +38,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def awesome_llama
+    redirect_to root_path
+  end
+
   private
 
   def check_format

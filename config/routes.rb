@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'feed', to: 'pages#feed', as: 'feed'
   get 'you_are_all_set', to: 'pages#you_are_all_set'
   get 'make_your_first_news_feed', to: 'pages#make_your_first_news_feed'
+  post 'awesome_llama', to: 'pages#awesome_llama', as: 'awesome_llama'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :news_feeds do
