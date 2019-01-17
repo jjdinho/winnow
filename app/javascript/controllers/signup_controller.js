@@ -16,8 +16,13 @@ export default class extends Controller {
     const passwordContainer = this.passwordContainerTarget;
     const progressBarOne = this.progressBarOneTarget;
     const progressBarContainer = this.progressBarContainerTarget;
+    let input = document.querySelector("#inputPassword");
+
+    console.log(input)
+
+    input.focus();
     // fade animation
-    this.fadeInElement(emailContainer);
+    this.fadeOutElement(emailContainer);
     this.removeHideAndFadeInElement(passwordContainer);
 
     setTimeout(function(){
@@ -26,15 +31,25 @@ export default class extends Controller {
     }, 500);
 
     // end animation
-    let input = document.querySelector("#inputPassword");
     this.listenForEnter(input);
   }
 
   submitPassword(e) {
     e.preventDefault();
-    const progressBarTwo = this.progressBarTwoTarget;
-    progressBarTwo.style.width = "100%";
-    console.log('yolo');
+    const passwordContainer = this.passwordContainerTarget;
+    const keywordContainer = this.keywordContainerTarget;
+    const progressBarTwo = this.progressBarOneTarget;
+    let input = document.querySelector("#inputKeyword");
+
+    input.focus();
+
+    // fade animation
+    setTimeout(function(){
+      progressBarTwo.style.width = "100%";
+    }, 500);
+
+    // end animation
+    this.listenForEnter(input);
   }
 
   submitKeyword(e) {
@@ -63,13 +78,17 @@ export default class extends Controller {
         if (event.keyCode === 13) {
           // Trigger the button element with a click
           document.getElementById("submitPasswordBtn").click();
+          input.removeEventListener("keyup")
         }
       });
     }
   }
   // animations
-  fadeInElement(element) {
+  fadeOutElement(element) {
     element.classList.add('animated', 'fadeOutRight');
+    setTimeout(function(){
+      element.classList.add('hide');
+    }, 500);
   }
 
   removeHideAndFadeInElement(element) {
