@@ -9,11 +9,17 @@
   width: 100vw;
 }
 body {
-  background: linear-gradient(180deg, #6D6DE8, $background-two 80%);
+  padding: 0;
+  margin: 0;
   font-weight: 300;
-  min-width: 100vw;
-  min-height: 100vh;
   color: rgb(245,245,245);
+}
+.winnow-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #6D6DE8, $background-two 80%);
+  z-index: -1;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;

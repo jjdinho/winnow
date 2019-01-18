@@ -86,9 +86,9 @@ export default class extends Controller {
 
   submitFrequency(e) {
     e.preventDefault();
-    // const frequencyContainer = this.frequencyContainerTarget;
-    // const sourcesContainer = this.sourcesContainerTarget;
-    // const progressBarThree = this.progressBarThreeTarget;
+    const frequencyContainer = this.frequencyContainerTarget;
+    const sourcesContainer = this.sourcesContainerTarget;
+    const progressBarFour = this.progressBarFourTarget;
     // let input = document.querySelector("#inputFrequency");
 
     // setTimeout(function(){
@@ -98,12 +98,12 @@ export default class extends Controller {
 
     // fade animation
 
-    // this.fadeOutElement(frequencyContainer);
-    // this.removeHideAndFadeInElement(sourcesContainer);
+    this.fadeOutElement(frequencyContainer);
+    this.removeHideAndFadeInElement(sourcesContainer);
 
-    // setTimeout(function(){
-    //   progressBarThree.style.width = "100%";
-    // }, 500);
+    setTimeout(function(){
+      progressBarFour.style.width = "100%";
+    }, 500);
 
     // end animation
   }

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :home_search_query]
+  skip_before_action :authenticate_user!, only: [:home, :home_search_query, :make_your_first_news_feed]
 
   before_action :check_format, only: :home_search_query
 
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
   end
 
   def make_your_first_news_feed
-    authorize current_user
+    # authorize current_user
   end
 
   def home_search_query
