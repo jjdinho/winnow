@@ -1,0 +1,20 @@
+<div data-controller="signup" class="-form">
+  <div class="progress-bar-container animated fadeIn">
+    <div data-target="signup.progressBar" class="progress-bar-1"></div>
+    <div class="progress-bar-2"></div>
+    <div class="progress-bar-3"></div>
+    <div class="progress-bar-4"></div>
+    <div class="progress-bar-dot"></div>
+  </div>
+  <%= form_tag(home_3_path) do %>
+    <!-- Password -->
+    <div data-target="signup.formContainer" class="animated fadeInLeft">
+      <p class="fs-1_5em">Let's get you a password <small>(6-20 characters)</small></p>
+      <%= password_field 'password', 'secret', size: 20, placeholder: "cleverpassword", autocomplete: "password", class: 'winnow-text-input', id: 'inputPassword' %>
+      <button data-action="click->signup#submitPassword" id="submitPasswordBtn" class="btn btn-winnow">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    <!-- end password -->
+  <% end %>
+</div>

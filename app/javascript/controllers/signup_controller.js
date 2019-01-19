@@ -1,120 +1,90 @@
  import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "emailContainer", "passwordContainer", "email",
-    "keywordContainer", "frequencyContainer", "sourcesContainer",
-    "progressBarOne", "progressBarTwo", "progressBarThree", "progressBarFour",
-    "progressBarContainer" ]
+  static targets = [ "emailContainer", "formContainer", "email",
+    "progressBar" ]
 
   connect() {
     console.log('working')
-    const passwordInput = document.querySelector("#inputPassword");
-    const keywordInput = document.querySelector("#inputKeyword");
-    const dailyRadio = document.querySelector("#daily");
-    const weeklyRadio = document.querySelector("#weekly");
-    const monthlyRadio = document.querySelector("#monthly");
-
-
+    const progressBar = this.progressBarTarget
+    if (progressBar) {
+      setTimeout(function(){
+        progressBar.style.width = "100%";
+      }, 250);
+    }
   }
 
   submitEmail(e) {
     e.preventDefault();
-    const emailContainer = this.emailContainerTarget;
-    const passwordContainer = this.passwordContainerTarget;
-    const progressBarOne = this.progressBarOneTarget;
-    const progressBarContainer = this.progressBarContainerTarget;
-    let input = document.querySelector("#inputPassword");
+    const formContainer = this.formContainerTarget;
+    const nav = document.querySelector(".nav-container")
 
-    setTimeout(function(){
-      input.focus();
-    }, 1000);
 
     // fade animation
-    this.fadeOutElement(emailContainer);
-    this.removeHideAndFadeInElement(passwordContainer);
-
-    setTimeout(function(){
-      progressBarContainer.style.opacity = "1";
-      progressBarOne.style.width = "100%";
-    }, 500);
+    this.fadeOutRightElement(formContainer);
+    this.fadeOutUpElement(nav);
 
     // end animation
+    setTimeout(function(){
+      window.location = 'home_2'
+    }, 500);
   }
 
   submitPassword(e) {
     e.preventDefault();
-    const passwordContainer = this.passwordContainerTarget;
-    const keywordContainer = this.keywordContainerTarget;
-    const progressBarTwo = this.progressBarTwoTarget;
-    let input = document.querySelector("#inputKeyword");
-    let blurry = document.querySelector("#inputPassword");
+    const formContainer = this.formContainerTarget;
 
-    blurry.blur();
-
-    setTimeout(function(){
-      input.focus();
-    }, 1000);
 
     // fade animation
+    this.fadeOutRightElement(formContainer);
 
-    this.fadeOutElement(passwordContainer);
-    this.removeHideAndFadeInElement(keywordContainer);
-
-    setTimeout(function(){
-      progressBarTwo.style.width = "100%";
-    }, 500);
+    // setTimeout(function(){
+    //   progressBarContainer.style.opacity = "1";
+    //   progressBarOne.style.width = "100%";
+    // }, 500);
 
     // end animation
+    setTimeout(function(){
+      window.location = 'home_3'
+    }, 500);
   }
 
   submitKeyword(e) {
     e.preventDefault();
-    const keywordContainer = this.keywordContainerTarget;
-    const frequencyContainer = this.frequencyContainerTarget;
-    const progressBarThree = this.progressBarThreeTarget;
-    let blurry = document.querySelector("#inputKeyword");
-    // let input = document.querySelector("#inputKeyword");
+    const formContainer = this.formContainerTarget;
 
-    blurry.blur();
-
-    // setTimeout(function(){
-    //   input.focus();
-    // }, 1000);
 
     // fade animation
+    this.fadeOutRightElement(formContainer);
 
-    this.fadeOutElement(keywordContainer);
-    this.removeHideAndFadeInElement(frequencyContainer);
-
-    setTimeout(function(){
-      progressBarThree.style.width = "100%";
-    }, 500);
+    // setTimeout(function(){
+    //   progressBarContainer.style.opacity = "1";
+    //   progressBarOne.style.width = "100%";
+    // }, 500);
 
     // end animation
+    setTimeout(function(){
+      window.location = 'home_4'
+    }, 500);
   }
 
   submitFrequency(e) {
     e.preventDefault();
-    const frequencyContainer = this.frequencyContainerTarget;
-    const sourcesContainer = this.sourcesContainerTarget;
-    const progressBarFour = this.progressBarFourTarget;
-    // let input = document.querySelector("#inputFrequency");
+    const formContainer = this.formContainerTarget;
 
-    // setTimeout(function(){
-
-    //   input.focus();
-    // }, 1000);
 
     // fade animation
+    this.fadeOutRightElement(formContainer);
 
-    this.fadeOutElement(frequencyContainer);
-    this.removeHideAndFadeInElement(sourcesContainer);
-
-    setTimeout(function(){
-      progressBarFour.style.width = "100%";
-    }, 500);
+    // setTimeout(function(){
+    //   progressBarContainer.style.opacity = "1";
+    //   progressBarOne.style.width = "100%";
+    // }, 500);
 
     // end animation
+    setTimeout(function(){
+      window.location = 'home_5'
+    }, 500);
   }
 
   submitSources() {
@@ -145,8 +115,15 @@ export default class extends Controller {
   }
 
   // animations
-  fadeOutElement(element) {
+  fadeOutRightElement(element) {
     element.classList.add('animated', 'fadeOutRight');
+    setTimeout(function(){
+      element.classList.add('hide');
+    }, 500);
+  }
+
+  fadeOutUpElement(element) {
+    element.classList.add('animated', 'fadeOutUp');
     setTimeout(function(){
       element.classList.add('hide');
     }, 500);
