@@ -1,19 +1,29 @@
 .layout-container {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  padding: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 95px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
 }
 .main-container {
   margin: auto;
   width: 100vw;
 }
 body {
-  background: linear-gradient(180deg, #6D6DE8, $background-two 80%);
+  padding: 0;
+  margin: 0;
   font-weight: 300;
-  min-width: 100vw;
-  min-height: 100vh;
   color: rgb(245,245,245);
+}
+.winnow-background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, #6D6DE8, $background-two 80%);
+  z-index: -1;
 }
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;

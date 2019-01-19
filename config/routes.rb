@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   root to: 'pages#home'
-  get 'feed', to: 'pages#feed', as: 'feed'
-  get 'you_are_all_set', to: 'pages#you_are_all_set'
-  get 'make_your_first_news_feed', to: 'pages#make_your_first_news_feed'
+  get 'home_2', to: 'pages#home_2', as: 'home_2'
+  get 'home_3', to: 'pages#home_3', as: 'home_3'
+  get 'home_4', to: 'pages#home_4', as: 'home_4'
+  get 'home_5', to: 'pages#home_5', as: 'home_5'
   post 'awesome_llama', to: 'pages#awesome_llama', as: 'awesome_llama'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

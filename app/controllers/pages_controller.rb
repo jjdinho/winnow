@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :home_search_query]
+  skip_before_action :authenticate_user!
 
   before_action :check_format, only: :home_search_query
 
@@ -11,16 +11,20 @@ class PagesController < ApplicationController
     @search_query = NewsFeed.new
   end
 
-  def feed
-    authorize current_user
+  def home_2
+    render layout: 'no_navbar'
   end
 
-  def you_are_all_set
-    authorize current_user
+  def home_3
+    render layout: 'no_navbar'
   end
 
-  def make_your_first_news_feed
-    authorize current_user
+  def home_4
+    render layout: 'no_navbar'
+  end
+
+  def home_5
+    render layout: 'no_navbar'
   end
 
   def home_search_query
