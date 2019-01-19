@@ -1,4 +1,4 @@
-import { Controller } from "stimulus"
+ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = [ "emailContainer", "passwordContainer", "email",
@@ -8,7 +8,13 @@ export default class extends Controller {
 
   connect() {
     console.log('working')
-    // this.listenForEnter();
+    const passwordInput = document.querySelector("#inputPassword");
+    const keywordInput = document.querySelector("#inputKeyword");
+    const dailyRadio = document.querySelector("#daily");
+    const weeklyRadio = document.querySelector("#weekly");
+    const monthlyRadio = document.querySelector("#monthly");
+
+
   }
 
   submitEmail(e) {
@@ -41,7 +47,9 @@ export default class extends Controller {
     const keywordContainer = this.keywordContainerTarget;
     const progressBarTwo = this.progressBarTwoTarget;
     let input = document.querySelector("#inputKeyword");
+    let blurry = document.querySelector("#inputPassword");
 
+    blurry.blur();
 
     setTimeout(function(){
       input.focus();
@@ -57,7 +65,6 @@ export default class extends Controller {
     }, 500);
 
     // end animation
-    this.listenForEnter(input);
   }
 
   submitKeyword(e) {
@@ -65,10 +72,12 @@ export default class extends Controller {
     const keywordContainer = this.keywordContainerTarget;
     const frequencyContainer = this.frequencyContainerTarget;
     const progressBarThree = this.progressBarThreeTarget;
+    let blurry = document.querySelector("#inputKeyword");
     // let input = document.querySelector("#inputKeyword");
 
-    // setTimeout(function(){
+    blurry.blur();
 
+    // setTimeout(function(){
     //   input.focus();
     // }, 1000);
 
