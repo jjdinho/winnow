@@ -46,14 +46,15 @@ class PagesController < ApplicationController
 
   def awesome_llama_1
     email = params[:email]
-    hex = SecureRandom.hex
+    hex = SecurityHex.create(hex: SecureRandom.hex)
     redirect_to home_2_path email: email, hex: hex
   end
 
   def awesome_llama_2
+    hex = params[:hex]
+    raise unless SecurityHex.find_by(hex: hex)
     email = params[:email]
     password = params[:password]
-    hex = SecureRandom.hex
     new_user = User.new(email: email, password: password, password_confirmation: password)
     if new_user.save
       sign_in(new_user)
