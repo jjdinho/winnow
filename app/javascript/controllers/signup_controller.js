@@ -2,10 +2,16 @@
 
 export default class extends Controller {
   static targets = [ "emailContainer", "formContainer", "email",
-    "progressBar" ]
+    "progressBar", "form", "focus" ]
 
   connect() {
     console.log('working')
+    const focus = this.focusTarget
+    if (focus) {
+      setTimeout(function(){
+        focus.focus();
+      }, 500);
+    }
     const progressBar = this.progressBarTarget
     if (progressBar) {
       setTimeout(function(){
@@ -18,7 +24,7 @@ export default class extends Controller {
     e.preventDefault();
     const formContainer = this.formContainerTarget;
     const nav = document.querySelector(".nav-container")
-
+    const form = this.formTarget
 
     // fade animation
     this.fadeOutRightElement(formContainer);
@@ -26,64 +32,52 @@ export default class extends Controller {
 
     // end animation
     setTimeout(function(){
-      window.location = 'home_2'
+      form.submit();
     }, 500);
   }
 
   submitPassword(e) {
     e.preventDefault();
     const formContainer = this.formContainerTarget;
+    const form = this.formTarget
 
 
     // fade animation
     this.fadeOutRightElement(formContainer);
 
-    // setTimeout(function(){
-    //   progressBarContainer.style.opacity = "1";
-    //   progressBarOne.style.width = "100%";
-    // }, 500);
-
     // end animation
     setTimeout(function(){
-      window.location = 'home_3'
+      form.submit();
     }, 500);
   }
 
   submitKeyword(e) {
     e.preventDefault();
     const formContainer = this.formContainerTarget;
+    const form = this.formTarget
 
 
     // fade animation
     this.fadeOutRightElement(formContainer);
 
-    // setTimeout(function(){
-    //   progressBarContainer.style.opacity = "1";
-    //   progressBarOne.style.width = "100%";
-    // }, 500);
-
     // end animation
     setTimeout(function(){
-      window.location = 'home_4'
+      form.submit();
     }, 500);
   }
 
   submitFrequency(e) {
     e.preventDefault();
     const formContainer = this.formContainerTarget;
+    const form = this.formTarget
 
 
     // fade animation
     this.fadeOutRightElement(formContainer);
 
-    // setTimeout(function(){
-    //   progressBarContainer.style.opacity = "1";
-    //   progressBarOne.style.width = "100%";
-    // }, 500);
-
     // end animation
     setTimeout(function(){
-      window.location = 'home_5'
+      form.submit();
     }, 500);
   }
 

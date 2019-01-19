@@ -6,12 +6,12 @@
     <div class="progress-bar-4"></div>
     <div class="progress-bar-dot"></div>
   </div>
-  <%= form_tag(home_4_path) do %>
+  <%= form_tag(awesome_llama_3_path, method: 'post', data: { target: 'signup.form' }) do %>
     <!-- Keyword -->
     <div data-target="signup.formContainer" class="animated fadeInLeft">
       <p class="fs-1_5em">What news are you interested in? <small>think <em>keyword</em></small></p>
       <%= text_field_tag 'keyword', nil, placeholder: "south china sea", class: 'winnow-text-input',
-          id: 'inputKeyword' %>
+          id: 'inputKeyword', data: { target: 'signup.focus' } %>
       <button data-action="click->signup#submitKeyword" id="submitKeywordBtn" class="btn btn-winnow">
         <i class="fas fa-arrow-right"></i>
       </button>

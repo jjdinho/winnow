@@ -20,10 +20,12 @@ class PagesController < ApplicationController
   end
 
   def home_4
+    raise
     render layout: 'no_navbar'
   end
 
   def home_5
+    raise
     render layout: 'no_navbar'
   end
 
@@ -42,8 +44,38 @@ class PagesController < ApplicationController
     end
   end
 
-  def awesome_llama
-    redirect_to root_path
+  def awesome_llama_1
+    email = params[:email]
+    hex = SecureRandom.hex
+    redirect_to home_2_path email: email, hex: hex
+  end
+
+  def awesome_llama_2
+    email = params[:email]
+    password = params[:password]
+    hex = SecureRandom.hex
+    new_user = User.new(email: email, password: password, password_confirmation: password)
+    if new_user.save
+      sign_in(new_user)
+      redirect_to home_3_path(hex: hex), notice: "Welcome, #{current_user.email}!"
+    else
+      redirect_to root_path, alert: 'Error'
+    end
+  end
+
+  def awesome_llama_3
+    email = params[:email]
+    password = params[:password]
+  end
+
+  def awesome_llama_4
+    email = params[:email]
+    password = params[:password]
+  end
+
+  def awesome_llama_5
+    email = params[:email]
+    password = params[:password]
   end
 
   private
