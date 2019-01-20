@@ -7,6 +7,8 @@
     <div class="progress-bar-dot"></div>
   </div>
   <%= form_tag(awesome_llama_4_path, method: 'post', data: { target: 'signup.form' }) do %>
+    <%= hidden_field_tag 'hex', params[:hex] %>
+    <%= hidden_field_tag 'keyword', params[:keyword] %>
     <!-- Frequency -->
     <div data-target="signup.formContainer" class="animated fadeInLeft">
       <p class="fs-1_5em">How often would you like to receive emails?</p>
@@ -23,7 +25,8 @@
         <input type="radio" class="winnow-radio-btn" id="monthly" name="frequency" value="monthly">
         <label class="winnow-radio-btn-label" for="monthly"><span>monthly</span></label>
       </div>
-      <button class="btn btn-winnow" id="submitFrequencyBtn" data-action="click->signup#submitFrequency">
+      <button type="submit" class="btn btn-winnow enter-on-click"
+      id="submitFrequencyBtn" data-action="click->signup#submitFrequency">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>

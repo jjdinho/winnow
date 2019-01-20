@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'awesome_llama_3', to: 'pages#awesome_llama_3', as: 'awesome_llama_3'
   post 'awesome_llama_4', to: 'pages#awesome_llama_4', as: 'awesome_llama_4'
   post 'awesome_llama_5', to: 'pages#awesome_llama_5', as: 'awesome_llama_5'
+  get 'yay_you_did_it', to: 'pages#yay_you_did_it', as: 'yay_you_did_it'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :news_feeds do

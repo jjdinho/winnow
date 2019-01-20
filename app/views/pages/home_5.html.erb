@@ -7,6 +7,9 @@
     <div class="progress-bar-dot"></div>
   </div>
   <%= form_tag(awesome_llama_5_path, method: 'post') do %>
+    <%= hidden_field_tag 'hex', params[:hex] %>
+    <%= hidden_field_tag 'keyword', params[:keyword] %>
+    <%= hidden_field_tag 'frequency', params[:frequency] %>
     <!-- News Sources -->
     <div data-target="signup.formContainer" class="animated fadeInLeft">
       <p class="fs-1_5em">Almost there! What news sources do you want to follow?</p>
@@ -243,9 +246,9 @@
           <label class="winnow-radio-btn-label" for="news_feed_news_source_ids_57"><span>Wired</span></label>
         </div>
       </fieldset>
-      <%= button_tag type: "submit", class: "btn btn-winnow" do %>
+      <button type="submit" class="btn btn-winnow enter-on-click" id="submitSourcesBtn" data-action="click->signup#submitSources">
         <i class="fas fa-arrow-right"></i>
-      <% end %>
+      </button>
     </div>
     <!-- end news sources -->
   <% end %>

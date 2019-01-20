@@ -2,15 +2,26 @@
 
 export default class extends Controller {
   static targets = [ "emailContainer", "formContainer", "email",
-    "progressBar", "form", "focus" ]
+    "progressBar", "form" ]
 
   connect() {
     console.log('working')
-    const focus = this.focusTarget
+    const focus = document.querySelector(".focus-me");
+    console.log(focus)
     if (focus) {
       setTimeout(function(){
         focus.focus();
       }, 500);
+    }
+    const button = document.querySelector(".enter-on-click");
+    console.log(button)
+    if (button) {
+      document.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+          button.click();
+        }
+      });
     }
     const progressBar = this.progressBarTarget
     if (progressBar) {
