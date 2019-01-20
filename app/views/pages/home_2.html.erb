@@ -6,12 +6,15 @@
     <div class="progress-bar-4"></div>
     <div class="progress-bar-dot"></div>
   </div>
-  <%= form_tag(home_3_path) do %>
+  <%= form_tag(awesome_llama_2_path, method: 'post', data: { target: 'signup.form' }) do %>
+    <%= hidden_field_tag 'hex', params[:hex] %>
+    <%= hidden_field_tag 'email', params[:email] %>
     <!-- Password -->
     <div data-target="signup.formContainer" class="animated fadeInLeft">
       <p class="fs-1_5em">Let's get you a password <small>(6-20 characters)</small></p>
-      <%= password_field 'password', 'secret', size: 20, placeholder: "cleverpassword", autocomplete: "password", class: 'winnow-text-input', id: 'inputPassword' %>
-      <button data-action="click->signup#submitPassword" id="submitPasswordBtn" class="btn btn-winnow">
+      <%= password_field 'password', 'secret', size: 20, placeholder: "cleverpassword", autocomplete: "password", class: 'winnow-text-input focus-me', id: 'inputPassword' %>
+      <button type="submit" data-action="click->signup#submitPassword"
+        id="submitPasswordBtn" class="btn btn-winnow">
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
