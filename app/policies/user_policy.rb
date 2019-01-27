@@ -8,4 +8,17 @@ class UserPolicy < ApplicationPolicy
   def yay_you_did_it?
     true
   end
+
+  # Policies for profile controller
+  def profile?
+    true
+  end
+
+  def update_profile?
+    profile?
+  end
+
+  def update_email_settings
+    profile?
+  end
 end

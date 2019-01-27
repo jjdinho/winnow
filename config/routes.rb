@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   post 'awesome_llama_5', to: 'pages#awesome_llama_5', as: 'awesome_llama_5'
   get 'yay_you_did_it', to: 'pages#yay_you_did_it', as: 'yay_you_did_it'
 
+  get 'profile', to: 'profile#profile', as: 'profile'
+  patch 'update_email_settings', to: 'profile#update_email_settings', as: 'update_email_settings'
+  patch 'update_profile', to: 'profile#update_profile', as: 'update_profile'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :news_feeds do
     resources :search_queries, only: [:index,:new,:create]
