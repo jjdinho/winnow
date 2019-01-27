@@ -15,6 +15,19 @@
   border-bottom-right-radius: 15px;
 }
 // inputs
+.input {
+  label {
+    margin-bottom: 0;
+    font-weight: 300;
+    font-size: 24px;
+    color: $secondary;
+  }
+  .winnow-text-input {
+    width: inherit;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+}
 .winnow-text-input {
   background-color: transparent;
   border-left:  0;
@@ -35,7 +48,6 @@
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 .winnow-text-input:focus {
-  box-shadow: none;
   border-left:  0;
   border-right: 0;
   border-top: 0;
@@ -91,8 +103,42 @@ textarea,
   transition: 0.3s ease-in-out;
 }
 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .input {
+    display: flex;
+    label {
+      align-self: center;
+      margin-bottom: 0;
+      font-weight: 300;
+      font-size: 24px;
+      min-width: 160px;
+      color: $secondary;
+      border-bottom: 1px solid rgb(245,245,245);
+      padding: 18px 0;
+    }
+    .winnow-text-input {
+      width: inherit;
+    }
+  }
+}
 
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
 
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  // .layout-container {
+
+  // }
+}
 
 
 

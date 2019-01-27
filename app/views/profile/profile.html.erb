@@ -1,20 +1,20 @@
 <h5>Account Info</h5>
 
 <%= simple_form_for(current_user, url: update_profile_path) do |f| %>
-    <%= f.input :first_name,
+      <%= f.input :first_name,
+                  label: 'First Name:',
+                  required: false,
+                  placeholder: "#{current_user.first_name ? current_user.first_name : 'Harry'}",
+                  input_html: { class: 'winnow-text-input' } %>
 
-                required: false,
-
-                placeholder: "#{current_user.first_name ? current_user.first_name : 'First name'}",
-                input_html: { class: 'winnow-text-input' } %>
     <%= f.input :last_name,
                 required: false,
-                label: false,
-                placeholder: "#{current_user.last_name ? current_user.last_name : 'Last name'}",
+                label: 'Last Name:',
+                placeholder: "#{current_user.last_name ? current_user.last_name : 'Llama'}",
                 input_html: { class: 'winnow-text-input' } %>
     <%= f.input :email,
                 required: false,
-                label: false,
+                label: 'Email:',
                 input_html: { class: 'winnow-text-input' } %>
 
     <%= f.button :submit, "Update Info", class: 'btn-winnow' %>
