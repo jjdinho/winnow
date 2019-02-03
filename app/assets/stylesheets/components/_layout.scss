@@ -18,6 +18,12 @@ body {
   font-weight: 300;
   color: rgb(245,245,245);
 }
+a {
+  color: $secondary;
+}
+a:hover {
+  color: $secondary-accent;
+}
 .winnow-background {
   position: fixed;
   width: 100vw;

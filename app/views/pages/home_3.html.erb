@@ -13,6 +13,7 @@
       <p class="fs-1_5em">What news are you interested in? <small>think <em>keyword</em></small></p>
       <%= text_field_tag 'keyword', nil, placeholder: "south china sea", class: 'winnow-text-input focus-me',
           id: 'inputKeyword' %>
+      <br>
       <button type="submit" data-action="click->signup#submitKeyword" id="submitKeywordBtn" class="btn btn-winnow">
         <i class="fas fa-arrow-right"></i>
       </button>
