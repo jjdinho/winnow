@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def new?
+    user.news_feeds.empty?
+  end
+
   def yay_you_did_it?
     true
   end

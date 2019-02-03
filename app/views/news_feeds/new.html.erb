@@ -1,10 +1,17 @@
-<%= simple_form_for @news_feed do |f| %>
-  <%= f.input :keyword %>
-  <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
-  <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
-  <%= f.button :submit %>
-<% end %>
+<div class="main-container">
+  <div class="flex-box">
+    <h1 class="test">New Llama</h1>
+  </div>
+</div>
+  <div class="main-content">
+    <%= simple_form_for @news_feed do |f| %>
+      <%= f.input :keyword %>
+      <%= f.input :frequency %>
+      <%= f.association :news_sources,
+          collection: NewsSource.all
+      %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
 
-
-
-<%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>
