@@ -86,14 +86,17 @@ textarea,
 }
 .winnow-radio-btn:checked + .winnow-radio-btn-label::before {
   font-family: "Font Awesome 5 Free";
-  content: "\f14a";
+  content: "\f00c";
+  font-weight: 900;
+  opacity: 1;
+  padding: 0 5px;
 }
 .winnow-radio-btn:hover + .winnow-radio-btn-label {
   margin-left: 1px;
 }
 .winnow-radio-btn:checked + .winnow-radio-btn-label span {
   color: $secondary;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 .winnow-radio-btn-label {
   border: 1px solid transparent;
@@ -108,6 +111,8 @@ textarea,
 .winnow-radio-btn-label::before {
   font-family: "Font Awesome 5 Free";
   content: "\f0c8";
+  opacity: 0;
+  padding-right: 5px;
 }
 .winnow-radio-btn-label span {
   transition: 0.3s ease-in-out;
@@ -118,9 +123,9 @@ textarea,
   display: none;
 }
 .winnow-radio-btn-check:checked + .winnow-radio-btn-check-label {
-  border: 1px solid $secondary;
-  background-color: rgba(255,255,255,0.05);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+  // border: 1px solid $secondary;
+  // background-color: rgba(255,255,255,0.05);
+  // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
 .winnow-radio-btn-check:checked + .winnow-radio-btn-check-label::before {
   font-family: "Font Awesome 5 Free";
@@ -131,10 +136,10 @@ textarea,
 }
 .winnow-radio-btn-check:checked + .winnow-radio-btn-check-label span {
   color: $secondary;
-  padding: 0 15px;
+  // padding: 0 15px;
 }
 .winnow-radio-btn-check-label {
-  border: 1px solid transparent;
+  // border: 1px solid transparent;
   cursor: pointer;
   font-size: 24px;
   font-weight: 300;
