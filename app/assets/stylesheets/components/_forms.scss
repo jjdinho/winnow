@@ -117,6 +117,13 @@ textarea,
 .winnow-radio-btn-label span {
   transition: 0.3s ease-in-out;
 }
+.radio-list {
+  display: flex;
+  flex-direction: column;
+  label {
+    align-self: left;
+  }
+}
 
 // Checkbox with check
 .winnow-radio-btn-check {
