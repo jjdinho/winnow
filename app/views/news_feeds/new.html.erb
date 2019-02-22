@@ -1,10 +1,37 @@
-<%= simple_form_for @news_feed do |f| %>
-  <%= f.input :keyword %>
-  <%= f.input :frequency, collection: news_feeds_frequencies_collection  %>
-  <%= f.association :news_sources, as: :check_boxes, value_method: :id %>
-  <%= f.button :submit %>
-<% end %>
+<div class="main-container">
+  <div class="flex-box">
+    <h1 class="test">New Llama</h1>
+  </div>
+</div>
+  <div class="main-content">
+    <%= simple_form_for @news_feed do |f| %>
+      <%= f.input :keyword,
+          placeholder: 'Great Pacific Garbage Patch',
+          input_html: { class: 'winnow-text-input' } %>
 
+      <div class="input radio-list">
+        <label class="required"><abbr title="required">*</abbr>Frequency</label>
+        <div class="radio">
+          <input type="radio" class="winnow-radio-btn" id="news_feed_frequency_0" name="news_feed[frequency]" value="news_feed_frequency_0"
+                 checked>
+          <label class="winnow-radio-btn-label" for="news_feed_frequency_0"><span>daily</span></label>
+        </div>
+        <div class="radio">
+          <input type="radio" class="winnow-radio-btn" id="news_feed_frequency_1" name="news_feed[frequency]" value="news_feed_frequency_1">
+          <label class="winnow-radio-btn-label" for="news_feed_frequency_1"><span>weekly</span></label>
+        </div>
+        <div class="radio">
+          <input type="radio" class="winnow-radio-btn" id="news_feed_frequency_2" name="news_feed[frequency]" value="news_feed_frequency_2">
+          <label class="winnow-radio-btn-label" for="news_feed_frequency_2"><span>monthly</span></label>
+        </div>
+      </div>
 
+      <%= f.association :news_sources,
+          collection: NewsSource.all,
+          input_html: { class: 'winnow-text-input' }
+      %>
+      <%= f.button :submit, 'Create', class: 'btn btn-winnow' %>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to "Powered by NewsAPI.org", "https://newsapi.org/" , target: "_blank" %>

@@ -13,6 +13,7 @@
     <div data-target="signup.formContainer" class="animated fadeInLeft">
       <p class="fs-1_5em">Let's get you a password <small>(6-20 characters)</small></p>
       <%= password_field 'password', 'secret', size: 20, placeholder: "cleverpassword", autocomplete: "password", class: 'winnow-text-input focus-me', id: 'inputPassword' %>
+      <br>
       <button type="submit" data-action="click->signup#submitPassword"
         id="submitPasswordBtn" class="btn btn-winnow">
         <i class="fas fa-arrow-right"></i>

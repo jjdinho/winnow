@@ -5,6 +5,7 @@ class NewsFeedsController < ApplicationController
 
   def new
     @news_feed = NewsFeed.new
+    authorize current_user
   end
 
   def create
