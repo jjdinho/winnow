@@ -84,6 +84,10 @@ textarea,
   background-color: rgba(255,255,255,0.05);
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
 }
+.winnow-radio-btn:checked + .winnow-radio-btn-label::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
+}
 .winnow-radio-btn:hover + .winnow-radio-btn-label {
   margin-left: 1px;
 }
@@ -92,7 +96,7 @@ textarea,
   padding: 0 15px;
 }
 .winnow-radio-btn-label {
-   border: 1px solid transparent;
+  border: 1px solid transparent;
   cursor: pointer;
   font-size: 24px;
   font-weight: 300;
@@ -101,16 +105,52 @@ textarea,
   border-radius: 5px;
   // transition: padding 0.3s ease-in-out;
 }
+.winnow-radio-btn-label::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0c8";
+}
 .winnow-radio-btn-label span {
   transition: 0.3s ease-in-out;
 }
-.boolean-check {
-  display: inline-block;
-  opacity: 0;
-  font-size: 24px;
-  color: $secondary;
-  transition: ease-in-out 0.3s;
+
+// Checkbox with check
+.winnow-radio-btn-check {
+  display: none;
 }
+.winnow-radio-btn-check:checked + .winnow-radio-btn-check-label {
+  border: 1px solid $secondary;
+  background-color: rgba(255,255,255,0.05);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.winnow-radio-btn-check:checked + .winnow-radio-btn-check-label::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
+}
+.winnow-radio-btn-check:hover + .winnow-radio-btn-check-label {
+  margin-left: 1px;
+}
+.winnow-radio-btn-check:checked + .winnow-radio-btn-check-label span {
+  color: $secondary;
+  padding: 0 15px;
+}
+.winnow-radio-btn-check-label {
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 300;
+  padding: 5px;
+  color: $secondary;
+  border-radius: 5px;
+  // transition: padding 0.3s ease-in-out;
+}
+.winnow-radio-btn-check-label::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0c8";
+}
+.winnow-radio-btn-check-label span {
+  transition: 0.3s ease-in-out;
+}
+
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   .input {
